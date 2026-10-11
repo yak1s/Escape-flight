@@ -1,0 +1,35 @@
+{
+  "name": "albatross-frozen-signal",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Albatross — A Frozen Signal: an offline-first solo escape adventure (PWA).",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/verify-dist.mjs",
+    "preview": "node scripts/serve-dist.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "icons": "node scripts/render-icons.mjs",
+    "audio": "python3 scripts/generate-audio.py"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "5.2.5",
+    "@fontsource/cormorant-garamond": "5.2.5",
+    "@fontsource/gochi-hand": "5.2.5",
+    "@fontsource/inter": "5.2.5",
+    "@fontsource/kalam": "5.2.5",
+    "@fontsource/la-belle-aurore": "5.2.5",
+    "@fontsource/special-elite": "5.2.5",
+    "preact": "10.25.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@preact/preset-vite": "2.10.2",
+    "fake-indexeddb": "6.0.1",
+    "typescript": "5.8.3",
+    "vite": "6.4.4",
+    "vitest": "5.0.3"
+  }
+}
