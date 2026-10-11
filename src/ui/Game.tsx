@@ -130,6 +130,15 @@ export function Game({ onEnding }: { onEnding: () => void }) {
     [store, pop, openDoc, openPuzzle, clear],
   );
 
+  // Automation hooks (only with ?e2e in the URL): open overlays through the real UI paths.
+  useEffect(() => {
+    if (!/e2e/.test(location.search)) return;
+    window.__albatross = window.__albatross || {};
+    window.__albatross.openPuzzle = openPuzzle;
+    window.__albatross.openDoc = openDoc;
+    window.__albatross.closeAll = clear;
+  }, [openPuzzle, openDoc, clear]);
+
   const scene = sceneById(state.scene);
   const ch = chapterById(state.chapter);
   const radioWaiting = state.queue.length > 0 || radioPuzzles(state).length > 0;
@@ -142,7 +151,7 @@ export function Game({ onEnding }: { onEnding: () => void }) {
         <IconBtn icon="menu" label="Menu" onClick={() => push({ k: 'menu' })} testid="open-menu" />
         <div class="where">
           <div class="ch">
-            Ch. {ch.n} · {ch.title} · {state.clock}
+            Chapter {ch.n} · {state.clock}
           </div>
           <div class="sc" data-testid="scene-title">
             {scene.title}

@@ -42,7 +42,7 @@ export function TitleArt() {
         <rect x="-40" y="-2" width="20" height="16" fill="#ffd38a" opacity="0.8" class="glow-anim" />
       </g>
       {/* tiny figure with a torch */}
-      <g transform="translate(300 1180)">
+      <g transform="translate(250 1070)">
         <path d="M0 0 l-6 30 h12 z" fill="#0b1018" />
         <circle cx="0" cy="-6" r="6" fill="#0b1018" />
         <path d="M4 6 L80 -30 L80 20 Z" fill="#ffe8b0" opacity="0.18" />

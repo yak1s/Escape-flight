@@ -13,7 +13,7 @@ declare global {
 
 export function installTestHooks(api: AppApi) {
   if (typeof location === 'undefined' || !/e2e/.test(location.search)) return;
-  window.__albatross = {
+  window.__albatross = Object.assign(window.__albatross || {}, {
     api,
     state: () => api.store?.state ?? null,
     saveStatus: () => api.store?.saveStatus ?? null,
@@ -23,5 +23,5 @@ export function installTestHooks(api: AppApi) {
     swEvents: () => [...swEvents],
     loadSave: () => loadGame(),
     screen: () => api.screen,
-  };
+  });
 }

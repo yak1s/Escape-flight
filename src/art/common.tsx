@@ -43,10 +43,12 @@ export function Defs({ id }: { id: string }) {
         <stop offset="0" stop-color="#ffd38a" stop-opacity="0.45" />
         <stop offset="1" stop-color="#ffd38a" stop-opacity="0" />
       </radialGradient>
-      <pattern id={`${id}-frost`} width="80" height="80" patternUnits="userSpaceOnUse">
-        <path d="M6 40l12-8l10 11l14-16l11 9l13-5M0 70l16-8l11 5l15-11l13 4l15-7M10 10l11 7l12-6l14 9l12-7" stroke="#e8f8fc" stroke-width="1.6" fill="none" opacity="0.55" />
-        <circle cx="52" cy="58" r="1.6" fill="#ffffff" opacity="0.7" />
-        <circle cx="22" cy="24" r="1.2" fill="#ffffff" opacity="0.6" />
+      <pattern id={`${id}-frost`} width="220" height="220" patternUnits="userSpaceOnUse">
+        <path d="M12 60 l18 -9 l11 13 M70 30 l9 16 l15 -4 M140 18 l-6 18 l14 8 M180 90 l16 -6 l5 15 M30 150 l14 10 l-4 16 M110 120 l12 -12 l13 9 M160 170 l-10 14 l15 7 M60 200 l17 -5" stroke="#e8f8fc" stroke-width="1.1" fill="none" opacity="0.35" />
+        <path d="M96 70 l4 0 M98 68 l0 4 M200 40 l4 0 M202 38 l0 4 M40 104 l3 0 M41.5 102.5 l0 3 M130 196 l4 0 M132 194 l0 4" stroke="#ffffff" stroke-width="1" opacity="0.55" />
+        <circle cx="152" cy="60" r="1.4" fill="#ffffff" opacity="0.5" />
+        <circle cx="22" cy="24" r="1.1" fill="#ffffff" opacity="0.45" />
+        <circle cx="190" cy="140" r="1.2" fill="#ffffff" opacity="0.45" />
       </pattern>
     </defs>
   );

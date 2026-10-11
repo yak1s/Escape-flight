@@ -132,7 +132,7 @@ export function Promenade({ state }: P) {
         <path d="M560 1270 L590 1150 L660 1145 L640 1270 Z" fill="#4a2f1c" opacity="0.8" />
       </g>
       <Icicles x={-100} y={150} w={700} n={14} seed={2} />
-      <Icicles x={620} y={520} w={180} n={6} seed={5} />
+      <Icicles x={440} y={520} w={180} n={6} seed={5} />
       <FrostOverlay id={id} opacity={0.18} />
       <circle cx={VP.x} cy={VP.y} r="420" fill={`url(#${id}-warm)`} opacity="0.35" />
       <TorchVignette id={id} />
