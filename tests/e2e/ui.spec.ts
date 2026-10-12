@@ -53,16 +53,14 @@ test('sound: volume and mute settings apply immediately and persist', async ({ p
   await page.getByTestId('music-volume').fill('25');
   await page.getByTestId('sfx-volume').fill('40');
   await page.getByRole('checkbox', { name: 'Mute all sound' }).check();
-  let a = await audioState(page);
-  expect(a).toMatchObject({ muted: true, musicVolume: 0.25, sfxVolume: 0.4 });
+  await expect.poll(() => audioState(page)).toMatchObject({ muted: true, musicVolume: 0.25, sfxVolume: 0.4 });
   await page.reload();
   await expect(page.getByTestId('title')).toBeVisible();
-  a = await audioState(page);
-  expect(a).toMatchObject({ muted: true, musicVolume: 0.25, sfxVolume: 0.4 });
+  await expect.poll(() => audioState(page)).toMatchObject({ muted: true, musicVolume: 0.25, sfxVolume: 0.4 });
   await page.getByTestId('open-settings').tap();
   await expect(page.getByRole('checkbox', { name: 'Mute all sound' })).toBeChecked();
   await page.getByRole('checkbox', { name: 'Mute all sound' }).uncheck();
-  expect((await audioState(page)).muted).toBe(false);
+  await expect.poll(async () => (await audioState(page)).muted).toBe(false);
 });
 
 test('hints are progressive and the full solution needs a confirmation', async ({ page }) => {
@@ -158,6 +156,8 @@ test('every radio conversation can be replayed from the log as text', async ({ p
     const h = (window as unknown as Hooks).__albatross;
     for (const id of ['c1-contact']) h.dispatch({ type: 'dialogueDone', id, choices: {}, effects: [] });
   });
+  // Finishing the first conversation opens chapter 2; read its title card first.
+  await page.getByTestId('chapter-continue').tap();
   await page.getByTestId('open-journal').tap();
   await page.getByTestId('tab-radio').tap();
   await page.getByTestId('replay-c1-contact').tap();

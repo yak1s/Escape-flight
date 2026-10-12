@@ -16,11 +16,24 @@
     <style>
       html,body{margin:0;height:100%;background:#0b1020;color:#e9e4d6}
       #boot{position:fixed;inset:0;display:grid;place-items:center;font:600 1.1rem/1.4 Georgia,serif;letter-spacing:.3em;color:#c9a45c;text-transform:uppercase}
+      #boot-help{display:none;position:fixed;left:16px;right:16px;bottom:24px;font:0.95rem/1.5 system-ui,sans-serif;color:#e9e4d6;text-align:center}
+      #boot-help a{color:#9fe3d0}
     </style>
   </head>
   <body>
     <div id="app"><div id="boot" aria-live="polite">Albatross</div></div>
+    <div id="boot-help" role="alert">
+      The game is taking too long to start. Check your connection and <a href="./">try again</a>.
+      If this is a newly published site: in the GitHub repository open Settings → Pages and set
+      Source to “GitHub Actions” (publishing straight from a branch serves unbuilt files).
+    </div>
     <noscript>Albatross needs JavaScript enabled.</noscript>
+    <script>
+      // If the game has not replaced the boot screen after 10 s, explain instead of hanging.
+      setTimeout(function () {
+        if (document.getElementById('boot')) document.getElementById('boot-help').style.display = 'block';
+      }, 10000);
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

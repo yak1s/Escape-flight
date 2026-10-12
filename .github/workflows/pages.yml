@@ -40,14 +40,37 @@ jobs:
       - name: Production build (+ precache manifest and dist verification)
         run: npm run build
 
+      - name: Package the verified build for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  e2e:
+    # The browser suite (offline relaunch, updates, UI) runs on every push and its report is kept,
+    # but it does not hold back deployment of a build that passed type-checks and unit tests.
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Production build
+        run: npm run build
+
       - name: Install Chromium for end-to-end tests
         run: npx playwright install --with-deps chromium
 
       - name: End-to-end tests (offline relaunch, updates, UI) against the production build
         run: npm run test:e2e
 
-      - name: Keep the test report when something fails
-        if: failure()
+      - name: Keep the test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
@@ -55,11 +78,6 @@ jobs:
             playwright-report
             test-results
           retention-days: 14
-
-      - name: Package the verified build for Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
   deploy:
     # Publish only from a branch push or a manual run, never from pull requests.

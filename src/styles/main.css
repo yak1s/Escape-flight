@@ -87,7 +87,7 @@ button { font: inherit; color: inherit; }
 }
 .btn.ghost { background: transparent; border-color: var(--line-soft); color: var(--text); }
 .btn.danger { border-color: rgba(236, 138, 120, 0.5); color: var(--danger); background: rgba(236, 138, 120, 0.08); }
-.btn.small { min-height: 36px; padding: 0.4rem 0.85rem; font-size: 0.9rem; }
+.btn.small { min-height: 44px; padding: 0.4rem 0.85rem; font-size: 0.9rem; }
 .btn.block { display: flex; width: 100%; }
 .btn[disabled] { opacity: 0.45; pointer-events: none; }
 .icon-btn {
@@ -163,7 +163,7 @@ button { font: inherit; color: inherit; }
   padding: 8px 10px calc(8px + var(--safe-bottom)); background: linear-gradient(0deg, rgba(6, 10, 22, 0.96), rgba(6, 10, 22, 0.75));
   border-top: 1px solid var(--line-soft);
 }
-.bottombar .btn { flex: 1; padding: 0.55rem 0.4rem; font-size: 0.86rem; }
+.bottombar .btn { flex: 1; min-height: 44px; padding: 0.55rem 0.4rem; font-size: 0.86rem; }
 .bottombar .btn svg { width: 18px; height: 18px; }
 
 /* scene */
