@@ -1,0 +1,434 @@
+{
+  "version": "9872cf1cd636087a",
+  "buildId": "20261012011159",
+  "buildTime": "2026-10-12T01:11:59.798Z",
+  "files": [
+    {
+      "url": "assets/caveat-latin-500-normal-DL4pb854.woff2",
+      "hash": "3d9d8c193a5a8bdbac8868ffceab7094a73d8611a84028f10f938b23e95c1d1c",
+      "size": 50984,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/caveat-latin-600-normal-CVQZ7gYO.woff2",
+      "hash": "6158d9db766f5fd0a744ee4c5158b1394016c188e0d90994c8fcbb656571aac7",
+      "size": 51280,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/cormorant-garamond-latin-500-italic-BSrQRlJ1.woff2",
+      "hash": "66b937da1d31b12fa88c8ca30027b668961bc40421451700fc182f745a3f7a6e",
+      "size": 21956,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/cormorant-garamond-latin-500-normal-1LI_Nn-7.woff2",
+      "hash": "991c8aba7707066e8d0f351d53a4eedee3b5f00d1db335d9a2ee39903b4b0c8c",
+      "size": 20940,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/cormorant-garamond-latin-600-normal-BgV6qtQt.woff2",
+      "hash": "066ec1ac2852906b7e7253ee3c129e0efd2343d8671712db064502f03228ccb0",
+      "size": 21012,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/gochi-hand-latin-400-normal-CZcpUbDp.woff2",
+      "hash": "8479481c244707f70235159361d719db1f881fd622140f0334e2888ad55b71c3",
+      "size": 19896,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/index-BDBl_1IN.js",
+      "hash": "de703a82cda0164a6c309bd25419ac98027b0a7c8aa64a69d01f5c70336a8b39",
+      "size": 423211,
+      "type": "text/javascript; charset=utf-8",
+      "group": "code"
+    },
+    {
+      "url": "assets/index-CZueFJE3.css",
+      "hash": "4ebd867701c6e066f0a32eb9c8915dd1ae2d742bc1624f37af4da8301ef89822",
+      "size": 23382,
+      "type": "text/css; charset=utf-8",
+      "group": "code"
+    },
+    {
+      "url": "assets/inter-latin-400-normal-BOOGhInR.woff2",
+      "hash": "dd05e326cf8eac3b55acecf29c842ed73e6e6dd06491cf47f7e8800680ab3e33",
+      "size": 23692,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/inter-latin-500-normal-D2bGa7uu.woff2",
+      "hash": "b0e7558f4710a1e255b93e3deefe3aebb19f3bb41c150f685a74d3b1a1c79e87",
+      "size": 24368,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/inter-latin-600-normal-D273HNI0.woff2",
+      "hash": "62553d159189834af73c9a6264704be5b2bee9a08da66a14768d8e5c6ffd2cdb",
+      "size": 24304,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/kalam-latin-400-normal-BthBl_aR.woff2",
+      "hash": "954410601a823f37e219f7930b7446f86afa15621326a7078d56fb9c910135cb",
+      "size": 22336,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/la-belle-aurore-latin-400-normal-D1eTpURF.woff2",
+      "hash": "54da154868e2237e6a2323ede6a4db035be01f0547692c66b0fd7e83a0867047",
+      "size": 18064,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "assets/special-elite-latin-400-normal-YjDd9tmf.woff2",
+      "hash": "770493d84cbb753cd0573d0f014550583138f40469d137e310d239593a1949d8",
+      "size": 53296,
+      "type": "font/woff2",
+      "group": "fonts"
+    },
+    {
+      "url": "audio/CREDITS.txt",
+      "hash": "768e6d85400ce29a4f7d5b94c9f3501c14272bb1d8436eba55056965320dd5be",
+      "size": 2125,
+      "type": "text/plain; charset=utf-8",
+      "group": "other"
+    },
+    {
+      "url": "audio/amb_radio.mp3",
+      "hash": "427e8309ad07c6674879f23437c6791a60705c87e8ae5a3755107c6433d74867",
+      "size": 280868,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/amb_wreck.mp3",
+      "hash": "6d5352a051a5040614b7b9d1c8acb693f3fa534fc95ac5f650ec5a5d8ec0abb7",
+      "size": 840776,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/bell.mp3",
+      "hash": "13b8feeb41e6816ad213d0c007736443814ad0f7bf479bdcd7117152276f3c69",
+      "size": 36675,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_A4.mp3",
+      "hash": "ec954a746b86ac188a8ce9d37eae32f2c62f233fbc6e7ed80531bd3daef5430d",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_B4.mp3",
+      "hash": "689935c5747a8d5555a52c7c1edeed434a1d7f095094fc96478ea04613d4ed8e",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_C5.mp3",
+      "hash": "1fe81c7652bfbbe25b145a42805668df8c456ad89a24b7782e32a8c040775dd6",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_D5.mp3",
+      "hash": "d2228bb5b4ed082f21a718d50056f36b9d17c18ab28b5a36290abcf8aa1722fa",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_E4.mp3",
+      "hash": "8f51529d1c9e06475e7185c448b9d5cfbd8395665ea927b49c1cc36ab9fe433b",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_E5.mp3",
+      "hash": "813c29d876878fe5e04c78da873249fa56a22182ad454a7788b06825c1d40612",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/box_G4.mp3",
+      "hash": "048e17dbd4eb0cf869d3dfbcb997bbdaa282b3e0788d1525f38b00fc05e37724",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/card.mp3",
+      "hash": "e1eb2ac3264e31d63ff162c54471d2023402d902b599c9d263cf005662bfc73c",
+      "size": 2507,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/chapter.mp3",
+      "hash": "6cd750511d6c70386bbba8af9f4fce60d3119e27c6d80518afae7a9a469c6b81",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/door.mp3",
+      "hash": "027eb5e4b16f9144bfc03a7bfda7891ac312ed76e2053242327be47fd6518915",
+      "size": 15046,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/engine_stop.mp3",
+      "hash": "364a2a4b3682c68d970060acd5d1dfc78e26691a82b254a4a28bdf2bb14d8acf",
+      "size": 36675,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/fail.mp3",
+      "hash": "0148fa459593171fad6728b51d4cc8634a92c0d640e442b7b2b206ea3dc51811",
+      "size": 5642,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/gear.mp3",
+      "hash": "0fefac1acb235adc58c06f7828ad6e9bcd7d2f37db4c2ac9a36e7010eed6d097",
+      "size": 5642,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/hint.mp3",
+      "hash": "76f255f98f2f523e21e77ddf522647cf29c1ccbcf5bc5b7d635d3b4aee7bca3a",
+      "size": 9090,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/hiss.mp3",
+      "hash": "f29ad653174c6288ca9e8828ec341d567c42f355ec9bd07c3176a82b13c75465",
+      "size": 18808,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/ice_crack.mp3",
+      "hash": "f260692d58ba202db15b5dc18a9a2b4666bc5f43b7d6c64c2ac1c6531a3d2909",
+      "size": 12852,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/mirror_click.mp3",
+      "hash": "cf0c61bdd120c0192f7f30a0c14cfd2de5ff49e819f21ae14dce2c1c51a5c1c9",
+      "size": 2194,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/music_ending.mp3",
+      "hash": "51e1a16693a9fa1d1eceb44b6ddb69a41db6ca6e043f5a135b5cf90da9d2b6c9",
+      "size": 840776,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/music_finale.mp3",
+      "hash": "877d059818aa6540e46f8ab595fbd79aaf33339aec936a7148f61a20f618d8c2",
+      "size": 1114696,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/music_resonance.mp3",
+      "hash": "44a9d3cc28f1071faa06e0ee69273ac147d558560e69f8e02b4a375b697cb66a",
+      "size": 630856,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/music_tension.mp3",
+      "hash": "bdf44991ccc09d7765361b9ee2a3559483b6abee464cd7eca6b984ae8f94e2ed",
+      "size": 576730,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/music_title.mp3",
+      "hash": "79c1ba6ad0a303f637192f5843b59f7e9da8ed93b8c583ef791e382773232cde",
+      "size": 656090,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/page.mp3",
+      "hash": "40c93c1d6f5b5363ce8ae5a9a5c16ba19f63bee58493664b101d84f61fd54b03",
+      "size": 5642,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/pickup.mp3",
+      "hash": "8b332d8177ff45a632c30d40cde9f0d50676a4e84d8dd4629650850cfc43885a",
+      "size": 7836,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/reveal.mp3",
+      "hash": "a179ad69695fa1fbf6723c0796c4ba47cd4f3cbd7acdd35e37d2f125af6de8cb",
+      "size": 36675,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/shimmer.mp3",
+      "hash": "7c6f3e43e19daa440a915b7f0fe4b76c729c2ff20092e528fa423fa203c344a8",
+      "size": 24764,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/slide.mp3",
+      "hash": "d9835fcc2ab8084cf3e3e7171685997bfc6ecebcf42e150de1d394e596d23fe1",
+      "size": 6896,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/squelch.mp3",
+      "hash": "d396b0536ecaa6228e52feb22f484961877e1dc52addb5a6be5690d4f6d8f8c4",
+      "size": 4388,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/static_burst.mp3",
+      "hash": "f44cb02913d33c4bcfee0c1e8e5e5643dc63dc656f99b54ce52bcde319376e03",
+      "size": 12852,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/success.mp3",
+      "hash": "d35c5fd60df5fbd88b4ba75487ce4e376bbe7c3c554cbdabd3b64138c8d6c814",
+      "size": 20062,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/tune_sweep.mp3",
+      "hash": "5fca8562a4b1a10876e10d07b341f7e7d383253f6d926ac3f7aaeef7a40b409f",
+      "size": 18808,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/ui_close.mp3",
+      "hash": "58c78ada48ca56ea10e5a39eb7716f8d5a470514bf67bef19ba90cd8fc08c12f",
+      "size": 3134,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/ui_open.mp3",
+      "hash": "fed400f600afe64ca230a7409cc02130b87bfe19ad4d802fc684416d8c8d261f",
+      "size": 3761,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/ui_tap.mp3",
+      "hash": "4407515b50b7d75447e35c5d2d322f493de733d5f2136d92376aaa436bc32340",
+      "size": 1567,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/unlock.mp3",
+      "hash": "11fcff66162dd4adbad94d52ac9052b4452d4c3c384e49206de144b03ea927be",
+      "size": 9090,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "audio/wind_gust.mp3",
+      "hash": "df4d266400ff5cc8d38e267ea57f7faeaf3f7a6a22c98e52a29ec11dbf6d45bd",
+      "size": 30720,
+      "type": "audio/mpeg",
+      "group": "audio"
+    },
+    {
+      "url": "icons/apple-touch-icon.png",
+      "hash": "2ffe6fbac8eadc4c83ad4e782557fa34d3eb9b339c57387c640da361ed058ab0",
+      "size": 21306,
+      "type": "image/png",
+      "group": "art"
+    },
+    {
+      "url": "icons/icon-192.png",
+      "hash": "31b49d09e9bdce556ace2a974eb47ba7cbee1f431f33735b63f9f01c6e2c28fa",
+      "size": 27848,
+      "type": "image/png",
+      "group": "art"
+    },
+    {
+      "url": "icons/icon-512.png",
+      "hash": "04853028f2c5c5ee8d00b17a1928faed0d53f86f1437d50a9e430e523d01aab1",
+      "size": 133512,
+      "type": "image/png",
+      "group": "art"
+    },
+    {
+      "url": "icons/icon-maskable-512.png",
+      "hash": "307925a3673c663945ed33ef66fc512464d0a81833bee3c282109a0581cdf657",
+      "size": 122222,
+      "type": "image/png",
+      "group": "art"
+    },
+    {
+      "url": "icons/icon.svg",
+      "hash": "c40b5f6a96a348ef8b20a1d0e8c522b0111e075b44a261b96a76674621e78fa3",
+      "size": 2209,
+      "type": "image/svg+xml",
+      "group": "art"
+    },
+    {
+      "url": "index.html",
+      "hash": "88c8ba2ea84261045ed36ffd246401d03b8f7f9144b0ab33c89fd2c8ae007c2b",
+      "size": 3138,
+      "type": "text/html; charset=utf-8",
+      "group": "code"
+    },
+    {
+      "url": "manifest.webmanifest",
+      "hash": "b96648f3585e7c9f9cd3f94b042f7e418feb2b0795692f0b59e714f664371438",
+      "size": 725,
+      "type": "application/manifest+json",
+      "group": "code"
+    }
+  ]
+}

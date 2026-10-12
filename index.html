@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Albatross — A Frozen Signal. A solo escape adventure that plays fully offline." />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Albatross" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <title>Albatross — A Frozen Signal</title>
+    <style>
+      html,body{margin:0;height:100%;background:#0b1020;color:#e9e4d6}
+      #boot{position:fixed;inset:0;display:grid;place-items:center;font:600 1.1rem/1.4 Georgia,serif;letter-spacing:.3em;color:#c9a45c;text-transform:uppercase}
+      #boot-help{display:none;position:fixed;left:16px;right:16px;bottom:24px;font:0.95rem/1.5 system-ui,sans-serif;color:#e9e4d6;text-align:center}
+      #boot-help a{color:#9fe3d0}
+    </style>
+    <script type="module" crossorigin src="./assets/index-BDBl_1IN.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CZueFJE3.css">
+  </head>
+  <body>
+    <div id="app"><div id="boot" aria-live="polite">Albatross</div></div>
+    <div id="boot-help" role="alert">
+      The game is taking too long to start. Check your connection and <a href="./">try again</a>.
+      Site owner: in the GitHub repository open Settings → Pages and either set Source to
+      “GitHub Actions”, or keep “Deploy from a branch” and choose the branch “gh-pages”, folder
+      “/ (root)”. Publishing the main code branch serves unbuilt files.
+    </div>
+    <noscript>Albatross needs JavaScript enabled.</noscript>
+    <script>
+      // Show any start-up error on the boot screen instead of failing silently.
+      window.__bootErrors = [];
+      window.addEventListener('error', function (e) {
+        var where = e.target && e.target !== window && (e.target.src || e.target.href);
+        window.__bootErrors.push(where ? 'Could not load ' + where : String(e.message || e.error));
+      }, true);
+      window.addEventListener('unhandledrejection', function (e) { window.__bootErrors.push(String(e.reason)); });
+      // If the game has not replaced the boot screen after 10 s, explain instead of hanging.
+      setTimeout(function () {
+        if (!document.getElementById('boot')) return;
+        var help = document.getElementById('boot-help');
+        if (window.__bootErrors.length) {
+          var p = document.createElement('p');
+          p.style.cssText = 'font:0.8rem/1.4 monospace;opacity:.8;word-break:break-all';
+          p.textContent = 'Details: ' + window.__bootErrors.slice(0, 3).join(' · ');
+          help.appendChild(p);
+        }
+        help.style.display = 'block';
+      }, 10000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+Albatross -- A Frozen Signal: audio credits
+==========================================
+
+All music, ambience and sound effects in this directory were procedurally
+synthesised by the project's own script, scripts/generate-audio.py
+(Python + numpy, encoded to MP3 with ffmpeg/libmp3lame).
+
+* Original work: every sound is generated from mathematical primitives
+  (sine partials, band-limited oscillators, filtered noise, a synthetic
+  noise-based reverb).  No samples, sample libraries, loops or third-party
+  recordings of any kind were used.
+* "The Clockmaker's Lullaby" is an original melody written for this game.
+* The files are deterministic: re-running `npm run audio`
+  (python3 scripts/generate-audio.py) regenerates them.
+* License: the same license as the rest of this project.
+
+Files
+-----
+  amb_radio.mp3           20.00 s
+  amb_wreck.mp3           60.00 s
+  bell.mp3                 3.00 s
+  box_A4.mp3               2.00 s
+  box_B4.mp3               2.00 s
+  box_C5.mp3               2.00 s
+  box_D5.mp3               2.00 s
+  box_E4.mp3               2.00 s
+  box_E5.mp3               2.00 s
+  box_G4.mp3               2.00 s
+  card.mp3                 0.15 s
+  chapter.mp3              2.00 s
+  door.mp3                 1.20 s
+  engine_stop.mp3          3.00 s
+  fail.mp3                 0.40 s
+  gear.mp3                 0.40 s
+  hint.mp3                 0.70 s
+  hiss.mp3                 1.50 s
+  ice_crack.mp3            1.00 s
+  mirror_click.mp3         0.12 s
+  music_ending.mp3        60.00 s
+  music_finale.mp3        79.56 s
+  music_resonance.mp3     45.00 s
+  music_tension.mp3       41.14 s
+  music_title.mp3         46.80 s
+  page.mp3                 0.40 s
+  pickup.mp3               0.60 s
+  reveal.mp3               3.00 s
+  shimmer.mp3              2.00 s
+  slide.mp3                0.50 s
+  squelch.mp3              0.30 s
+  static_burst.mp3         1.00 s
+  success.mp3              1.60 s
+  tune_sweep.mp3           1.50 s
+  ui_close.mp3             0.20 s
+  ui_open.mp3              0.25 s
+  ui_tap.mp3               0.06 s
+  unlock.mp3               0.70 s
+  wind_gust.mp3            2.50 s
