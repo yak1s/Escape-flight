@@ -45,6 +45,14 @@ jobs:
         with:
           path: dist
 
+      - name: Keep the built site for the gh-pages branch
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist
+          include-hidden-files: true
+          retention-days: 7
+
   e2e:
     # The browser suite (offline relaunch, updates, UI) runs on every push and its report is kept,
     # but it does not hold back deployment of a build that passed type-checks and unit tests.
@@ -78,6 +86,30 @@ jobs:
             playwright-report
             test-results
           retention-days: 14
+
+  publish-branch:
+    # Also publish the built game to the `gh-pages` branch, so the site works with either Pages
+    # setting: Source "GitHub Actions", or Source "Deploy from a branch" with branch gh-pages / root.
+    if: github.event_name != 'pull_request'
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: site
+      - name: Push the build to gh-pages
+        run: |
+          cd site
+          touch .nojekyll
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish build of ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
 
   deploy:
     # Publish only from a branch push or a manual run, never from pull requests.

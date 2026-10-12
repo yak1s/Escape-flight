@@ -24,14 +24,30 @@
     <div id="app"><div id="boot" aria-live="polite">Albatross</div></div>
     <div id="boot-help" role="alert">
       The game is taking too long to start. Check your connection and <a href="./">try again</a>.
-      If this is a newly published site: in the GitHub repository open Settings → Pages and set
-      Source to “GitHub Actions” (publishing straight from a branch serves unbuilt files).
+      Site owner: in the GitHub repository open Settings → Pages and either set Source to
+      “GitHub Actions”, or keep “Deploy from a branch” and choose the branch “gh-pages”, folder
+      “/ (root)”. Publishing the main code branch serves unbuilt files.
     </div>
     <noscript>Albatross needs JavaScript enabled.</noscript>
     <script>
+      // Show any start-up error on the boot screen instead of failing silently.
+      window.__bootErrors = [];
+      window.addEventListener('error', function (e) {
+        var where = e.target && e.target !== window && (e.target.src || e.target.href);
+        window.__bootErrors.push(where ? 'Could not load ' + where : String(e.message || e.error));
+      }, true);
+      window.addEventListener('unhandledrejection', function (e) { window.__bootErrors.push(String(e.reason)); });
       // If the game has not replaced the boot screen after 10 s, explain instead of hanging.
       setTimeout(function () {
-        if (document.getElementById('boot')) document.getElementById('boot-help').style.display = 'block';
+        if (!document.getElementById('boot')) return;
+        var help = document.getElementById('boot-help');
+        if (window.__bootErrors.length) {
+          var p = document.createElement('p');
+          p.style.cssText = 'font:0.8rem/1.4 monospace;opacity:.8;word-break:break-all';
+          p.textContent = 'Details: ' + window.__bootErrors.slice(0, 3).join(' · ');
+          help.appendChild(p);
+        }
+        help.style.display = 'block';
       }, 10000);
     </script>
     <script type="module" src="/src/main.tsx"></script>
