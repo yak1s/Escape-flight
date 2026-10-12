@@ -59,7 +59,11 @@ export function Title() {
       <div class="title-content">
         {confirmNew ? (
           <div class="panel" style={{ background: 'rgba(8,14,28,0.92)' }}>
-            <p style={{ marginTop: 0 }}>Start a new game? Your current progress ({saveText}) will be erased. You can export a backup first in Settings.</p>
+            <p style={{ marginTop: 0 }} data-testid="confirm-new-text">
+              {saveText
+                ? `Start a new game? Your current progress (${saveText}) will be erased. You can export a backup first in Settings.`
+                : 'There is a saved game on this device that this version cannot read. Starting a new game will replace it. If you might want it back, keep it: an older or newer copy of the game may still open it.'}
+            </p>
             <div style={{ display: 'flex', gap: 8 }}>
               <Btn kind="ghost" onClick={() => setConfirmNew(false)} style={{ flex: 1 }}>
                 Keep playing
@@ -77,7 +81,7 @@ export function Title() {
                 <span style={{ fontWeight: 400, fontSize: '0.78rem', opacity: 0.8 }}>· {saveText.split(' · ').slice(0, 2).join(' · ')}</span>
               </Btn>
             )}
-            <Btn kind={app.hasSave ? undefined : 'primary'} block onClick={() => (app.hasSave ? setConfirmNew(true) : void app.startNew())} data-testid="new-game">
+            <Btn kind={app.hasSave ? undefined : 'primary'} block onClick={() => (app.hasSave || app.unreadableSave ? setConfirmNew(true) : void app.startNew())} data-testid="new-game">
               New game
             </Btn>
             <div style={{ display: 'flex', gap: 8 }}>

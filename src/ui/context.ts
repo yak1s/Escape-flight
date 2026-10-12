@@ -18,6 +18,8 @@ export interface AppApi {
   continueGame: () => Promise<void>;
   replaceSave: (state: GameState) => Promise<void>;
   hasSave: boolean;
+  /** A save exists on this device but this version cannot read it (kept until the player decides). */
+  unreadableSave: string | null;
   refreshSave: () => Promise<void>;
 }
 

@@ -2,7 +2,7 @@
   "name": "albatross-frozen-signal",
   "private": true,
   "version": "1.0.0",
-  "description": "Albatross — A Frozen Signal: an offline-first solo escape adventure (PWA).",
+  "description": "Albatross \u2014 A Frozen Signal: an offline-first solo escape adventure (PWA).",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "node scripts/serve-dist.mjs",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.tests.json",
     "icons": "node scripts/render-icons.mjs",
     "audio": "python3 scripts/generate-audio.py"
   },
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@playwright/test": "1.56.1",
     "@preact/preset-vite": "2.10.2",
+    "@types/node": "22.20.4",
     "fake-indexeddb": "6.0.1",
     "typescript": "5.8.3",
     "vite": "6.4.4",

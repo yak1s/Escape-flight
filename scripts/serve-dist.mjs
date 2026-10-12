@@ -5,7 +5,9 @@
 //  - sends `Cache-Control: max-age=600` like GitHub Pages
 // Usage: node scripts/serve-dist.mjs [--dir dist] [--port 4173] [--base /Escape-flight/]
 // The served directory can be switched at runtime (used by update tests):
-//   POST /__control/serve?dir=<absolute path>   (only when --control is passed)
+//   GET /__control/serve?dir=<absolute path>   switch the served build   (only with --control)
+//   GET /__control/offline?value=1|0           drop every connection (simulates no network)
+//   GET /__control/log[?reset=1]               requests received since the last reset (JSON)
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, normalize, extname, resolve } from 'node:path';
@@ -21,6 +23,7 @@ const port = Number(args.port || process.env.PORT || 4173);
 const base = (args.base || '/Escape-flight/').replace(/\/?$/, '/');
 const control = args.control === 'true';
 let offline = false;
+let log = [];
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -47,6 +50,14 @@ const server = createServer(async (req, res) => {
     res.writeHead(200).end(`offline=${offline}`);
     return;
   }
+  if (control && url.pathname === '/__control/log') {
+    const body = JSON.stringify(log);
+    if (url.searchParams.get('reset') === '1') log = [];
+    res.writeHead(200, { 'Content-Type': 'application/json' }).end(body);
+    return;
+  }
+  log.push({ path: url.pathname + url.search, offline, at: Date.now() });
+  if (log.length > 5000) log.shift();
   if (offline) {
     req.socket.destroy();
     return;

@@ -26,6 +26,7 @@ export function App() {
   const [screen, setScreen] = useState<Screen>('boot');
   const [store, setStore] = useState<GameStore | null>(null);
   const [hasSave, setHasSave] = useState(false);
+  const [unreadableSave, setUnreadableSave] = useState<string | null>(null);
   const [loadNote, setLoadNote] = useState<string | null>(null);
   const [toasts, setToasts] = useState<ToastMsg[]>([]);
   const [missing, setMissing] = useState<string | null>(null);
@@ -57,6 +58,7 @@ export function App() {
     const r = await loadGame();
     loaded.current = r.state;
     setHasSave(Boolean(r.state));
+    setUnreadableSave(!r.state && r.problems.length ? r.problems.join(' ') : null);
     if (r.recovered) setLoadNote('Your latest save was damaged, so the previous backup was restored.');
     else if (r.problems.length && !r.state) setLoadNote(`A save was found but could not be read: ${r.problems.join(' ')}`);
   }, []);
@@ -97,6 +99,7 @@ export function App() {
       /* ignore */
     }
     setHasSave(true);
+    setUnreadableSave(null);
     setScreen('game');
   }, [attach]);
 
@@ -165,8 +168,8 @@ export function App() {
   }, [screen, store]);
 
   const api: AppApi = useMemo(
-    () => ({ store, settings, setSettings, screen, go, back, toast, startNew, continueGame, replaceSave, hasSave, refreshSave }),
-    [store, settings, setSettings, screen, go, back, toast, startNew, continueGame, replaceSave, hasSave, refreshSave],
+    () => ({ store, settings, setSettings, screen, go, back, toast, startNew, continueGame, replaceSave, hasSave, unreadableSave, refreshSave }),
+    [store, settings, setSettings, screen, go, back, toast, startNew, continueGame, replaceSave, hasSave, unreadableSave, refreshSave],
   );
 
   useEffect(() => installTestHooks(api), [api]);
@@ -188,7 +191,7 @@ export function App() {
         ))}
       </div>
       {missing && (
-        <div class="banner" role="alert">
+        <div class="banner" role="alert" data-testid="missing-banner">
           <span style={{ flex: 1 }}>
             A game file is missing from offline storage ({missing.split('/').pop()}). Your progress is safe. When you are online, open Prepare for offline play and
             tap Repair.

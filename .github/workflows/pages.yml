@@ -1,0 +1,78 @@
+# Builds the game, runs every test (unit + the real offline end-to-end suite), and publishes the
+# verified build to GitHub Pages. One-time setup: Settings → Pages → Build and deployment →
+# Source: "GitHub Actions". See README.md → "Deploying".
+name: Build, test & deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, claude/escape-adventure-pwa-game-mhyhdq]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check (app + tests)
+        run: npm run typecheck
+
+      - name: Unit tests (puzzle validators, content graph, save system, full walkthrough)
+        run: npm test
+
+      - name: Production build (+ precache manifest and dist verification)
+        run: npm run build
+
+      - name: Install Chromium for end-to-end tests
+        run: npx playwright install --with-deps chromium
+
+      - name: End-to-end tests (offline relaunch, updates, UI) against the production build
+        run: npm run test:e2e
+
+      - name: Keep the test report when something fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+          retention-days: 14
+
+      - name: Package the verified build for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    # Publish only from a branch push or a manual run, never from pull requests.
+    if: github.event_name != 'pull_request'
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

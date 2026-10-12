@@ -232,6 +232,11 @@ const NODE_POS: Record<RatNode, [number, number]> = {
   K3: [460, 70],
   C: [540, 200],
 };
+/** Wall-clock label for a minute of the rat run (Wren set off at 01:52). */
+export const ratClock = (minute: number) => {
+  const total = 52 + minute;
+  return `${String(1 + Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
+};
 export function RatRun({ solve }: PuzzleProps) {
   const [plan, setPlan] = useState<RatNode[]>([]);
   const [t, setT] = useState(0);
@@ -270,7 +275,7 @@ export function RatRun({ solve }: PuzzleProps) {
         <svg class="pz-svg" viewBox="0 0 600 400" data-testid="ratrun">
           <rect width="600" height="400" rx="14" fill="#0e1a16" />
           <text x="300" y="390" text-anchor="middle" fill="#6fa58e" font-size="14">
-            Le Chemin des Rats · minute {shown} (01:{String(52 + shown).padStart(2, '0').slice(-2)})
+            Le Chemin des Rats · minute {shown} ({ratClock(shown)})
           </text>
           {RAT_EDGES.map(([a, b]) => (
             <line key={a + b} x1={NODE_POS[a][0]} y1={NODE_POS[a][1]} x2={NODE_POS[b][0]} y2={NODE_POS[b][1]} stroke="#3c6b5a" stroke-width="10" stroke-linecap="round" />

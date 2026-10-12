@@ -357,6 +357,8 @@ export async function checkForUpdate(onState: (s: UpdateState) => void): Promise
       if (finished) return;
       finished = true;
       off();
+      // Unused consent must not linger for a later background check to pick up.
+      if (s.status !== 'ready') void caches.open('albatross-control').then((c) => c.delete(consentUrl));
       onState(s);
       resolve(s);
     };

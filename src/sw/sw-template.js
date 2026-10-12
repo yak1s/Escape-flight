@@ -43,9 +43,14 @@ self.addEventListener('install', (event) => {
 
 async function install() {
   const isUpdate = Boolean(self.registration.active);
-  if (isUpdate && !(await hasConsent())) {
-    await broadcast({ type: 'UPDATE_DEFERRED', version: SW_VERSION });
-    throw new Error('Update not requested by the player; keeping the current version.');
+  if (isUpdate) {
+    if (!(await hasConsent())) {
+      await broadcast({ type: 'UPDATE_DEFERRED', version: SW_VERSION });
+      throw new Error('Update not requested by the player; keeping the current version.');
+    }
+    // Consent is single-use: whether this install succeeds or fails, a later background check
+    // must not reuse it.
+    await clearConsent();
   }
 
   const cache = await caches.open(CACHE_NAME);

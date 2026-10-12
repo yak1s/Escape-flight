@@ -1,0 +1,6 @@
+{
+  // Type-checks the test suites (unit + Playwright) with Node types on top of the app config.
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "types": ["vite/client", "node"] },
+  "include": ["src", "tests", "playwright.config.ts"]
+}

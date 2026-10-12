@@ -22,12 +22,14 @@ export function Piano({ saved, save, solve }: PuzzleProps) {
   const W = 600;
   const H = 400;
   const cleared = grid.filter(Boolean).length / grid.length;
+  // The latest grid, so fast swipes (several moves between renders) never lose wiped cells.
+  const gridRef = useRef(grid);
 
   const wipe = (e: PointerEvent) => {
     if (clear) return;
     const p = svgPoint(svgRef.current!, e.clientX, e.clientY);
     setStrokes((st) => (st.length > 400 ? [...st.slice(-400), p] : [...st, p]));
-    const next = [...grid];
+    const next = [...gridRef.current];
     const R = 46;
     for (let gy = 0; gy < GH; gy += 1)
       for (let gx = 0; gx < GW; gx += 1) {
@@ -35,6 +37,7 @@ export function Piano({ saved, save, solve }: PuzzleProps) {
         const cy = (gy + 0.5) * (H / GH);
         if (Math.hypot(cx - p.x, cy - p.y) < R) next[gy * GW + gx] = true;
       }
+    gridRef.current = next;
     setGrid(next);
     const frac = next.filter(Boolean).length / next.length;
     if (frac > 0.82) {

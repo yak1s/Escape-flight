@@ -132,10 +132,14 @@ export function Mosaic({ saved, save, solve }: PuzzleProps) {
   };
 
   const Tile = ({ tile, x, y, size, ghost }: { tile: number; x: number; y: number; size: number; ghost?: boolean }) => (
+    <>
+    {/* Solid hit area: the drawing itself has unfilled gaps that a finger would fall through. */}
+    <rect x={x} y={y} width={size} height={size} fill="#0b1426" />
     <svg x={x} y={y} width={size} height={size} viewBox={`${(tile % 3) * 200} ${Math.floor(tile / 3) * 200} 200 200`} opacity={ghost ? 0.85 : 1} style={{ overflow: 'hidden' }}>
       <DeckPlanDrawing />
       <rect x={(tile % 3) * 200 + 1} y={Math.floor(tile / 3) * 200 + 1} width={198} height={198} fill="none" stroke="#c9a45c" stroke-width="3" opacity="0.55" />
     </svg>
+    </>
   );
 
   return (
