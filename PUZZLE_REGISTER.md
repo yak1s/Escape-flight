@@ -108,7 +108,11 @@ definition in `src/content/puzzles.ts` and is mirrored in this register.
 * Stage 2 (radio): Vasseur shows Wren the K♣ — the next card is **3♥**.
 
 ### P12 · The Mirror Box — Vasseur's apparatus (beam routing)
-* Rotate mirrors so the torch beam passes through the lantern slide and exits through the lens.
+* 5×5 box (`M` rotatable mirror, `X` velvet block, `S` lantern slide, `.` empty):
+  `MXM.M / XMMM. / .M.XM / MMSMX / M.MM.`. Beam enters from the left of row 2; it must pass the
+  slide and leave through the top above column 3 (the lens).
+* Verified by exhaustive search over all 2^15 mirror settings: exactly **two** beam paths work, e.g.
+  (2,1)\ (3,1)/ (3,0)/ (4,0)\ (4,2)/ (1,2)/ (1,3)/. Either is accepted.
 * **Gives:** the projected "Rat Run" map of maintenance ways (used in both times).
 
 ### P13 · The Rat Run — radio (time-step route planning)

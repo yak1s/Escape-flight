@@ -1,9 +1,9 @@
 // Builds the extra versions used by the update tests from the current source:
 //   .e2e-tmp/dist-v2      a genuine newer build (different build id ⇒ different SW version)
-//   .e2e-tmp/dist-broken  the same newer build with one audio file corrupted on the server
+//   .e2e-tmp/dist-broken  the same newer build with its new code bundle corrupted on the server
 // The main build in dist/ must already exist (CI runs `npm run build` first).
 import { execSync } from 'node:child_process';
-import { cpSync, existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 export default function globalSetup() {
@@ -18,7 +18,10 @@ export default function globalSetup() {
     env: { ...process.env, BUILD_ID: 'e2e-v2' },
   });
   cpSync(v2, broken, { recursive: true });
-  const victim = join(broken, 'audio/bell.mp3');
+  // Corrupt a file that CHANGED in the new version (unchanged files are reused from the verified
+  // local copy and never downloaded), so the install must fetch it and its hash check must fail.
+  const bundle = readdirSync(join(broken, 'assets')).find((f) => f.endsWith('.js'))!;
+  const victim = join(broken, 'assets', bundle);
   const bytes = readFileSync(victim);
   bytes[bytes.length - 10] ^= 0xff; // same size, wrong hash
   writeFileSync(victim, bytes);

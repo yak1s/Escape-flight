@@ -125,7 +125,11 @@ test('airplane mode: prepare online, close, reopen with no network, continue and
     expect(n.network(), 'every request answered by the service worker').toEqual([]);
     expect(n.entries.length).toBeGreaterThan(10);
   }
-  expect(await serverLog(), 'the server received no requests while offline').toEqual([]);
+  // The only thing allowed to knock on the server is the browser's own built-in check for a newer
+  // sw.js (Playwright's offline emulation does not cover that internal fetch; on a real phone in
+  // airplane mode it simply fails, and our worker never acts on it without consent).
+  const hits = (await serverLog()).map((l) => l.path.split('?')[0]);
+  expect(hits.filter((p) => !p.endsWith('/sw.js')), 'no game file was requested from the server while offline').toEqual([]);
   expect([...errors, ...errors2], 'no page errors offline').toEqual([]);
   await ctx.close();
 });

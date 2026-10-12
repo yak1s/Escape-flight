@@ -3,7 +3,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { APP, collectErrors, gameState, serveBuild } from './support';
-import { touchAt } from './driver';
+import { playThroughDialogue, touchAt } from './driver';
 import { SCENES } from '../../src/content/scenes';
 
 type Hooks = { __albatross: Record<string, (...a: unknown[]) => unknown> };
@@ -156,8 +156,8 @@ test('every radio conversation can be replayed from the log as text', async ({ p
     const h = (window as unknown as Hooks).__albatross;
     for (const id of ['c1-contact']) h.dispatch({ type: 'dialogueDone', id, choices: {}, effects: [] });
   });
-  // Finishing the first conversation opens chapter 2; read its title card first.
-  await page.getByTestId('chapter-continue').tap();
+  // Finishing the first conversation opens chapter 2: read its title card and opening exchange.
+  await playThroughDialogue(page, { expect: true });
   await page.getByTestId('open-journal').tap();
   await page.getByTestId('tab-radio').tap();
   await page.getByTestId('replay-c1-contact').tap();

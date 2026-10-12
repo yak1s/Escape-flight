@@ -167,6 +167,9 @@ export const SOLVERS: Record<string, (page: Page) => Promise<void>> = {
     for (let y = 25; y <= 400 && !(await visible(page, 'piano-options')); y += 50) {
       await touchDrag(page, { x: box.x + 5 * k, y: box.y + y * k }, { x: box.x + 595 * k, y: box.y + y * k }, 24);
     }
+    // In emulated touch, Chromium swallows the first tap after this swipe gesture (no click is
+    // synthesised). Tap neutral ground first; see QA_REPORT.md (to verify on a real phone).
+    await page.locator('.pz-intro').tap();
     await tap(page, `piano-${L.PIANO_FALSE}`);
   },
   async P06(page) {
@@ -358,6 +361,8 @@ async function ensurePuzzle(page: Page, id: string) {
 
 export async function runStep(page: Page, s: WStep) {
   if ('talk' in s) {
+    // Conversations wait until the player puts away whatever they were looking at.
+    await closeLooseSheets(page);
     await playThroughDialogue(page, { expect: true });
     return;
   }
